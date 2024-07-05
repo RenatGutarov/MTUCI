@@ -1,0 +1,26 @@
+<h1>Получить резюме</h1>
+
+<form action="{% url 'scrape_view' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Спарсить</button>
+</form>
+
+{% if total_resumes %}
+    <p>Найдено общее количество резюме по запросу '{{ form.cleaned_data.query }}': {{ total_resumes }}</p>
+{% endif %}
+
+{% if resumes %}
+    <h2>Найденные резюме:</h2>
+    <ul>
+        {% for resume in resumes %}
+            <li>Title: {{ resume.title }}, Salary: {{ resume.salary }}, Skills: {{ resume.skills }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+
+
+
+
+

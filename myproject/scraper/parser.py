@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import re
 from fake_useragent import UserAgent
+
 from .models import Resume  # Импортируем модель Resume из файла models.py вашего приложения
 
 def fetch_resume_data(query='python', min_salary=None, skills=None, area=1, page_size=20):
